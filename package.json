@@ -1,5 +1,5 @@
 {
-  "name": "volpsystem",
+  "name": "portfolio",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -10,16 +10,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codewithsilva/volpsystem.git"
+    "url": "git+https://github.com/codewithsilva/portfolio.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/codewithsilva/volpsystem/issues"
+    "url": "https://github.com/codewithsilva/portfolio/issues"
   },
-  "homepage": "https://github.com/codewithsilva/volpsystem#readme",
+  "homepage": "https://github.com/codewithsilva/portfolio#readme",
   "dependencies": {
     "@prisma/client": "^6.11.0",
     "@radix-ui/react-accordion": "^1.2.11",
@@ -61,6 +61,7 @@
     "lucide-react": "^0.525.0",
     "luxon": "^3.6.1",
     "next": "^15.3.4",
+    "next-i18next": "^15.4.2",
     "next-themes": "^0.4.6",
     "prisma": "^6.11.0",
     "react": "^19.1.0",
@@ -87,6 +88,7 @@
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@types/styled-components": "^5.1.34",
+    "@types/webpack": "^5.28.5",
     "babel-plugin-styled-components": "^2.1.4",
     "typescript": "^5.8.3"
   }

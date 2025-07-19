@@ -19,37 +19,46 @@ class MyDocument extends Document {
   }
 
   render() {return (
-  <Html lang="pt-br" dir="ltr"><Head>
+  <Html lang="en" dir="ltr"><Head>
     <meta charSet="utf-8"/>
-    <link rel="preload" href="/font/Roboto.ttf" as="font" type="font/ttf" crossOrigin="anonymous"/>
-    <link rel="preload" as="image" href="/images/0-bgdm.png" type="image/png"/>
+      <link rel="preload" href="/font/Roboto.ttf" as="font" type="font/ttf" crossOrigin="anonymous"/>
+      <link rel="preload" as="image" href="/images/0-bgdm.png" type="image/png"/>
 
-    <meta name="description" content="A Volp System é especializada em rastreamento veicular com tecnologia avançada, segurança em tempo real e suporte personalizado."/>
-    <link rel="icon" href="/favicon.svg"/>
+      <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/>
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/>
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"/>
 
-    <meta name="keywords" content="rastreamento veicular, localizador de veículos, segurança automotiva, rastreador GPS, Volp System, monitoramento de frota, proteção veicular"/>   
-    <meta name="author" content="codewithsilva"/>
-    <meta name="theme-color" content="#f8f9fa"/>
-          
-    <meta name="mobile-web-app-capable" content="yes"/>
-    <meta name="mobile-web-app-status-bar-style" content="black-translucent"/>
-    <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
+      <link rel="manifest" href="/favicon/site.webmanifest"/>
+      <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-chrome-192x192.png"/>
+      <link rel="icon" type="image/png" sizes="512x512" href="/favicon/android-chrome-512x512.png"/>
 
-    <meta property="og:title" content="Volp System | Rastreamento Veicular Inteligente"/>
-    <meta property="og:description" content="Monitore seu veículo em tempo real com a tecnologia da Volp System. Segurança e precisão para sua frota ou carro pessoal."/>
+      <meta name="description" content="portfolio, dev Fullstack"/>
+      <meta name="keywords" content="portfolio, desenvolvedor fullstack, web developer, frontend, backend, React, Node.js, Codewithsilva, developer, nextjs"/>
 
-    <meta property="og:image" content="/images/og-cover.jpg"/>
-    <meta property="og:url" content="https://app.volpsystem.com"/>
-    <meta property="og:type" content="website"/>
+      <meta name="author" content="codewithsilva"/>
+      <meta name="theme-color" content="#f8f9fa"/>
+      <meta name="mobile-web-app-capable" content="yes"/>
 
-    <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify({
-      "@context": "https://schema.org", "@type": "Organization", name:"Volp System",
-      url:"https://app.volpsystem.com", logo:"https://app.volpsystem.com/logo.png",
-      description:"Empresa de rastreamento veicular por GPS em tempo real.",
-      
-      address:{"@type":"PostalAddress", addressCountry:"BR"},
-      contactPoint:{"@type":"ContactPoint", contactType:"customer service", telephone:"+558197368979"}
-    })}}/>
+      <meta name="mobile-web-app-status-bar-style" content="black-translucent"/>
+      <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
+      <meta property="og:title" content="Codewithsilva | Dev Fullstack"/>
+
+      <meta property="og:description" content="portfolio, dev Fullstack"/>
+      <meta property="og:image" content="/images/og-cover.jpg"/>
+      <meta property="og:url" content="https://codewithsilva.com"/>
+      <meta property="og:type" content="website" />
+
+      <script type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html:JSON.stringify({"@context":"https://schema.org",
+        "@type":"Person", name:"Codewithsilva",
+        
+        url:"https://codewithsilva.com",
+        description:"portfolio, dev Fullstack",
+        sameAs:["https://github.com/codewithsilva",
+
+        "https://api.whatsapp.com/send?phone=5581987113364&text=Hey!"]}),
+      }}/>
   </Head>
   
   <body><Main/><NextScript/></body></Html>)}

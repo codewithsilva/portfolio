@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { appear, twerk } from '@/assets/style/defaults/default'
+import { appear, twerk } from '@/style/defaults/default'
 
 export const Section = styled.section`
   height:100dvh;

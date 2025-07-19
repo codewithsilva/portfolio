@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { Details } from './Details'
-import { grid } from '../../assets/style/defaults/default'
+import { grid } from '@/style/defaults/default'
 
 export const Strong = styled.strong`
   ${grid}

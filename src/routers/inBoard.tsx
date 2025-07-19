@@ -1,4 +1,4 @@
-import { User } from "@/app/client/user/User"
+import { User } from "@/app/user/User"
 
 const inBoard = [
   {path:'/newUser', component:<User type="signup"/>, wrapper:true},

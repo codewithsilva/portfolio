@@ -2,10 +2,9 @@ import { useRouter } from 'next/router'
 import styled from 'styled-components'
 
 import { useGlobalCtx } from '@/app/context/Global'
-import { svg } from './svgs'
 
-import { rotate } from '@/assets/style/defaults/default'
-import { KeyRound } from 'lucide-react'
+import { rotate } from '@/style/defaults/default'
+import { ArrowLeft, KeyRound } from 'lucide-react'
 
 //mincomponents
 const Styled = styled.dl`
@@ -85,7 +84,7 @@ nav='/login', txt='fazer Login', setTwerk=() => {}}) => {
   }
 
   return (<>{ask && 'possui conta?'} <a className={`${clN} ${ld? 'off':''}`} 
-  onClick={handleNav}>{clN === 'goback'? <svg.goback/> : 
+  onClick={handleNav}>{clN === 'goback'? <ArrowLeft/> : 
   <>{txt === 'Recuperar'? <><KeyRound size={24}/> Recuperar</>:{txt}}</>}</a></>)
 }
 

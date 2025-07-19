@@ -4,7 +4,7 @@ import { neuralBg } from './default'
 export const mainForm = css`
   main.client {
     padding:.75rem 0;
-    width:100vw;
+    width:100dvw;
     display:flex;
     flex-direction:column; 
     justify-content:center;

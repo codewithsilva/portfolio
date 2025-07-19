@@ -50,8 +50,8 @@ export const whatsappScroll = css`
 
       a:nth-child(1), a:nth-child(2) {
         padding:.5rem;
-        background:white;
-        box-shadow:0px 0px 15px rgba(255,255,255,1);
+        background:${({theme})=>theme.color.white};
+        box-shadow:0px 0px 15px ${({theme})=>theme.color.white};
 
         svg {stroke:${({theme})=>theme.color.violet}}
       }

@@ -5,7 +5,7 @@ import outBoard from '@/routers/outBoard'
 import inBoard from '@/routers/inBoard'
 
 import { Img, Ld } from '@/app/resources/Defaults'
-import { Section } from '@/app/client/user/styled'
+import { Section } from '@/app/user/styled'
 
 export default function DynamicPage() { 
   const router = useRouter(), { slug } = router.query,

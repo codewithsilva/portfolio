@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { twerk } from '@/assets/style/defaults/default'
+import { twerk } from '@/style/defaults/default'
 
 export const Styled = styled.form`
   fieldset.otp {
