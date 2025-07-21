@@ -10,7 +10,7 @@ import { ArrowLeft, KeyRound } from 'lucide-react'
 const Styled = styled.dl`
 ${({theme})=>theme.screen}
 ${({theme})=>theme.flex.center}
-background:${({theme})=>theme.color.white};
+background:${({theme})=>theme.color.primary};
 
 &.ctn {
   ${({theme})=>theme.screenContainer}
@@ -19,7 +19,7 @@ background:${({theme})=>theme.color.white};
   dt {
     ${({theme})=>theme.sameSize(theme.rem(36))}
     border:${({theme})=>theme.rem(3)} 
-    solid ${({theme})=>theme.color.white};
+    solid ${({theme})=>theme.color.primary};
     border-bottom-color:transparent;
   }
 }
@@ -32,7 +32,7 @@ dt {
   ${({theme})=>theme.sameSize(theme.rem(70))}
   border-radius:100%;
   border:${({theme})=>theme.rem(5)} 
-  solid ${({theme})=>theme.color.strongPurple};
+  solid ${({theme})=>theme.color.secondary};
   border-left-color:transparent;
   border-right-color:transparent;
   ${rotate}

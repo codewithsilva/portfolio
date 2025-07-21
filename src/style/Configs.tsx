@@ -4,7 +4,7 @@ export const configs = {
   rem:(pixels:number)=>`${pixels / 16}rem`,
   shadow:(shade:string)=>({boxShadow:`0 0 5px 2px ${shade}`,}),
 
-  transition: (duration = '.2s', timing = 'ease') => ({
+  transition:(duration = '.2s', timing = 'ease') => ({
   transition: `${duration} ${timing}`,}),
 
   size: (x = '110%', y = '110%') => ({ width: x, height: y }),
@@ -47,40 +47,18 @@ export const configs = {
   screen: { position: 'fixed', top: 0, left: 0, width: '100dvw', height: '100dvh', zIndex:10 },
   screenContainer: { position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' },
 
-  defDoubleDot: {content:"''",position:'absolute',display:'block' },
-  bgStyle: { backgroundRepeat: 'no-repeat', backgroundSize: 'cover' },
+  defDoubleDot: {content:"''",position:'absolute',display:'block'},
+  bgStyle: {backgroundRepeat:'no-repeat', backgroundSize:'cover'},
   
   color: {
-    //main
-    blue:'#1A73E8',
-    strongBlue:'#0057B7',
-    indigo:'#3F51B5',
+    default:'#FFFFFF',
+    neutral:'#0F172A',
 
-    strongPurple:'#E64A19',
-    purple:'#FF7534',
-    lavender:'#FFA374',
-    violet:'#FFD2B3',
+    primary:'#1D344C',
+    secondary:'#2C5A8A',
 
-    darkPurple:'#5E239D',
-
-    engiRed:'#D7263D',
-    red:'#FF4C4C',
-    orangeRed:'#FF6534',
-
-    orange:'#FF7534',
-    yellow:'#FFD166',
-
-    limeGreen:'#B9E937',
-    green:'#2E8B57',
-    
-    //default
-    bgdm:'#f8f9fa',
-    white:'#fff',
-    platinum:'#dee2e6',
-
-    erieBlack:'#191919',
-    textCl:'#212529',
-    shadow:'rgba(222,226,230,.5)',
+    accent:'#5DA9E9',
+    surface:'#A9CDEB',
   },
   
   flex: {

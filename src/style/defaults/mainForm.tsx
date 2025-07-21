@@ -17,8 +17,8 @@ export const mainForm = css`
     font-weight:800;
     font-size:1.2rem;
     border-radius:.75rem;
-    color:${i=>i.theme.color.white};
-    box-shadow:0 0 6px 0 ${({theme}) => theme.color.platinum};
+    color:${i=>i.theme.color.primary};
+    box-shadow:0 0 6px 0 ${({theme}) => theme.color.secondary};
     position:relative;
     white-space:nowrap;
     overflow:hidden;
@@ -39,7 +39,9 @@ export const mainForm = css`
           border-radius:2rem;
           transform:scale(1);
         }
+
         90% {border-radius:2rem;}
+
         100% {
           width:3.7rem;
           height:3.7rem;
@@ -70,7 +72,7 @@ export const mainForm = css`
       z-index:-3;
       ${({theme}) => theme.screenContainer}
       ${({theme}) => theme.gradient(
-      theme.color.purple, theme.color.strongPurple)}
+      theme.color.purple, theme.color.secondary)}
     }
 
     &:after {
@@ -91,7 +93,7 @@ export const mainForm = css`
   input:-webkit-autofill {
     -webkit-background-clip:text !important;
     transition:background-color 0s ease-in-out 0s;
-    -webkit-text-fill-color:${({theme})=>theme.color.textCl} !important;
+    -webkit-text-fill-color:${({theme})=>theme.color.primary} !important;
   }
   
   input[type="number"] {

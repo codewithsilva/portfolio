@@ -10,6 +10,16 @@ export const rotate = css`
   }
 ` 
 
+export const ploc = css`
+  position:relative;
+  animation:pl .7s linear infinite;
+
+  @keyframes pl {
+    0%, 100% {top:0;}
+    50% {top:-.15rem;;}
+  }
+` 
+
 export const fadeInLetter = css`
   animation:fading .1s ease forwards;
 
@@ -83,7 +93,7 @@ export const hideMenu = css`
 export const detail = css`
   ${({theme})=>theme.defDoubleDot}
   ${({theme})=>theme.sameSize(theme.rem(63))}
-  background:${({theme})=>theme.color.strongPurple};
+  background:${({theme})=>theme.color.primary};
   z-index:-1;
   pointer-events:none;
   cursor:auto;
@@ -95,14 +105,4 @@ export const grid = css`
   display:grid;
   place-items:center;
   grid-template-columns:1/1;
-`
-
-//design
-export const neuralBg = css`
-  background:url('/images/0-bgdm.png');
-  ${({theme})=>theme.defDoubleDot}
-  ${({theme})=>theme.bgStyle}
-  ${({theme})=>theme.screenContainer}
-  z-index:0;
-  ${appear({opacityOnly:true, toOpacity:1, dur:.7, rel:false})}
 `

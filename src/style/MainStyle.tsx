@@ -15,7 +15,6 @@ const MainStyle = createGlobalStyle`
   }
 
   header {
-    font-family:'Poppins', sans-serif;
     background:transparent;
     transition:background-color .3s ease, padding .3s ease;
     
@@ -28,16 +27,15 @@ const MainStyle = createGlobalStyle`
       &.scroll {
         backdrop-filter:blur(10px);
         background:${({theme})=>theme.hexToRgba(
-        theme.color.strongPurple,.8)};
+        theme.color.secondary,.8)};
         padding:${({theme}) => 
         `${theme.rem(1)} ${theme.rem(24)}`};
-        ${({theme})=>theme.shadow(theme.hexToRgba(theme.color.textCl, .3))}
+        ${({theme})=>theme.shadow(theme.hexToRgba(theme.color.primary, .3))}
       }
     }
   }
 
-  main, footer {font-family:'Inter', sans-serif;}
-  h1, h2, h3, h4 {font-family:'Poppins-bold', sans-serif;}
+  section {overflow:hidden}
 
   @media(max-width:${({theme})=>theme.rem(1150)}),
   (max-height:${({theme})=>theme.rem(550)}) {

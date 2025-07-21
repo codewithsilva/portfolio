@@ -3,13 +3,13 @@ import { FaWhatsapp } from 'react-icons/fa'
 import styled from 'styled-components'
 
 import { svg } from '@/app/resources/svgs'
-import { twerk } from '@/assets/style/defaults/default'
-import { Button } from "@/assets/style/defaults/tags"
+import { twerk } from '@/style/defaults/default'
+import { Button } from "@/style/defaults/tags"
 
 const Zap = styled.a`
   padding:.2rem;
   background:${({theme})=>theme.gradient('#25D366','#128C7E')};
-  ${({theme})=>theme.shadow(theme.color.green)}
+  ${({theme})=>theme.shadow('#128C7E')}
   position:relative;
 
   svg path {fill:white}

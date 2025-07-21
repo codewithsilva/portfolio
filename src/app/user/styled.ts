@@ -21,22 +21,7 @@ export const Section = styled.section`
 
     img {
       ${({theme})=>theme.size(theme.rem(210),'auto')}
-      ${appear({drc:'bottom', dur:.3, scl:true })}
-    }
-
-    &:after {
-      content:'Monitoramento e Rastreamento Veicular';
-      position:absolute;
-      bottom:-1.6rem;
-      width:0;
-      overflow:hidden;
-      white-space:nowrap;
-      border-right:2px solid white;
-      animation:typing .7s linear forwards;
-      color:${({theme})=>theme.hexToRgba(theme.color.textCl, .8)};
-      font-weight:500;
-      letter-spacing:.1rem;
-      font-size:.8rem;
+      ${appear({drc:'bottom', dur:.3, scl:true})}
     }
 
     @keyframes typing {
@@ -71,7 +56,7 @@ export const Section = styled.section`
     }
 
     fieldset {
-      color:${({theme})=>theme.hexToRgba(theme.color.textCl, .2)};
+      color:${({theme})=>theme.hexToRgba(theme.color.primary, .2)};
       width:100%;
 
       &, p, a {
@@ -80,7 +65,7 @@ export const Section = styled.section`
 
         svg {
           opacity:.2;
-          fill:${({theme})=>theme.color.strongPurple};
+          fill:${({theme})=>theme.color.secondary};
         }
       }
 

@@ -21,8 +21,19 @@ class MyDocument extends Document {
   render() {return (
   <Html lang="en" dir="ltr"><Head>
     <meta charSet="utf-8"/>
-      <link rel="preload" href="/font/Roboto.ttf" as="font" type="font/ttf" crossOrigin="anonymous"/>
-      <link rel="preload" as="image" href="/images/0-bgdm.png" type="image/png"/>
+      <link rel="preload"
+      href="/font/work/static/WorkSans-VariableFont_wght.ttf"
+      as="font" type="font/ttf" crossOrigin="anonymous"/>
+      <link rel="preload"
+      href="/font/CinzelReg.ttf"
+      as="font" type="font/ttf" crossOrigin="anonymous"/>
+
+      <link rel="preload"
+      href="/font/CinzelBold.ttf"
+      as="font" type="font/ttf" crossOrigin="anonymous"/>
+      <link rel="preload"
+      href="/font/CinzelStrong.ttf"
+      as="font" type="font/ttf" crossOrigin="anonymous"/>
 
       <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/>
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"/>

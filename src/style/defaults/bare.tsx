@@ -2,23 +2,35 @@ import { css } from "styled-components"
 
 export const bare = css`
   @font-face {
-    font-family:'Roboto';
-    src:url('/font/roboto.ttf') format('truetype');
+    font-family:'WorkSans';
+    src:url('/font/work/WorkSans-VariableFont_wght.ttf') format('truetype');
+    font-weight:100 900;
+    font-style:normal;
+    font-display:swap;
   }
 
   @font-face {
-    font-family:'Inter';
-    src:url('/font/inter.ttf') format('truetype');
+    font-family:'Cinzel';
+    src:url('/font/CinzelReg.ttf') format('truetype');
+    font-weight:400;
+    font-style:normal;
+    font-display:swap;
   }
 
   @font-face {
-    font-family:'Poppins';
-    src:url('/font/poppins.ttf') format('truetype');
+    font-family:'CinzelBold';
+    src:url('/font/CinzelBold.ttf') format('truetype');
+    font-weight:700;
+    font-style:normal;
+    font-display:swap;
   }
 
   @font-face {
-    font-family:'Poppins-bold';
-    src:url('/font/poppins-bold.ttf') format('truetype');
+    font-family:'CinzelStrong';
+    src:url('/font/CinzelStrong.ttf') format('truetype');
+    font-weight:900;
+    font-style:normal;
+    font-display:swap;
   }
 
   *, *:before, *:after {
@@ -28,9 +40,9 @@ export const bare = css`
     box-sizing:border-box;
     outline:none;
     list-style:none;
-    font-family:'Roboto', sans-serif;
-    letter-spacing:.1rem;
-    color:#121212;
+    font-family:'WorkSans', sans-serif;
+    letter-spacing:.05rem;
+    color:${({theme})=>theme.color.default};
     font-weight:400;
   }
 
@@ -47,9 +59,16 @@ export const bare = css`
 
   body {
     line-height:1.5;
-    background:${({theme})=>theme.color.white};
+    background:${({theme})=>theme.color.default};
     text-rendering:optimizeLegibility;
     ${({theme})=>theme.flex.center}
+  }
+
+  h1, h2, h3, h4, h5, h6,
+  span, a, i, p {display:inline-block;} 
+
+  span {
+    font-family:'CinzelStrong', serif;
   }
 
   img, picture, video, canvas {
@@ -85,7 +104,7 @@ export const bare = css`
     }
 
     &::-webkit-scrollbar-thumb {
-      background:linear-gradient(135deg, #E04D00 0%, #FF7534 100%); 
+      background:linear-gradient(135deg, #1D344C 0%, #2C5A8A 100%); 
     }
 
     &::-webkit-scrollbar-track {

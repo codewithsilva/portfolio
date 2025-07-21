@@ -19,9 +19,8 @@ width: number=768, height: number=550) => css`
 `
 
 export const Button = styled.button`
-  background:${({theme})=>theme.color.white};
-  color:${({theme})=>theme.color.strongPurple};
-  font-family:'Poppins', sans-serif;
+  background:${({theme})=>theme.color.primary};
+  color:${({theme})=>theme.color.secondary};
   letter-spacing:.05rem;
   border-radius:.75rem;
   font-weight:700;
@@ -50,20 +49,20 @@ export const whatsappScroll = css`
 
       a:nth-child(1), a:nth-child(2) {
         padding:.5rem;
-        background:${({theme})=>theme.color.white};
-        box-shadow:0px 0px 15px ${({theme})=>theme.color.white};
+        background:${({theme})=>theme.color.primary};
+        box-shadow:0px 0px 15px ${({theme})=>theme.color.primary};
 
-        svg {stroke:${({theme})=>theme.color.violet}}
+        svg {stroke:${({theme})=>theme.color.secondary}}
       }
     }
 
     &:not(&.adm) span a:nth-child(2), 
     &.adm span a:nth-child(3) {
       background:${({theme})=>theme.hexToRgba(
-      theme.color.strongPurple,.3)};
+      theme.color.primary,.3)};
       padding:.45rem;
       ${({theme})=>theme.shadow(theme.hexToRgba(
-      theme.color.strongPurple,.1))}
+      theme.color.primary,.1))}
 
       ${appear({drc:"bottom", dur:.3, scl:true})}
       svg {opacity:.8;}
