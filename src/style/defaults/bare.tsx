@@ -64,8 +64,13 @@ export const bare = css`
     ${({theme})=>theme.flex.center}
   }
 
+  *::selection {
+    background:${({theme})=>theme.hexToRgba(theme.color.secondary, .6)};
+  }
+
+
   h1, h2, h3, h4, h5, h6,
-  span, a, i, p {display:inline-block;} 
+  span, a, i, p, bdo {display:inline-block;} 
 
   span {
     font-family:'CinzelStrong', serif;

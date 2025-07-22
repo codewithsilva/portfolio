@@ -51,8 +51,9 @@ export const configs = {
   bgStyle: {backgroundRepeat:'no-repeat', backgroundSize:'cover'},
   
   color: {
-    default:'#FFFFFF',
+    erieBlack:'#1A1B1C',
     neutral:'#0F172A',
+    default:'#FFFFFF',
 
     primary:'#1D344C',
     secondary:'#2C5A8A',

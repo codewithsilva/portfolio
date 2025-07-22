@@ -1,0 +1,48 @@
+import { Zap } from "lucide-react"
+import styled from "styled-components"
+import { ploc } from "./default"
+
+const Btn = styled.button`
+  background:${({theme})=>theme.hexToRgba(theme.color.default, .1)};
+  color:${({theme})=>theme.color.default};
+  text-shadow:0 0 3px ${({theme})=>theme.color.default};
+  letter-spacing:.2rem;
+  border-radius:2rem;
+  font-size:.8rem;
+  gap:.5rem;
+  font-family:'CinzelStrong', serif;
+  padding:.4rem .5rem .3rem 1.75rem;
+  box-shadow:0 0 10px ${({theme})=>theme.hexToRgba(theme.color.default, .3)};
+  
+  &.main {top:2.8rem;}
+
+  &, &:hover span, span {
+    position:relative;
+    ${({theme})=>theme.transition()}
+  }
+
+  &:hover span {transform:scale(1.1) rotate(15deg);}
+  &, span {
+    ${({theme})=>theme.flex.center}
+  }
+
+  span {
+    border-radius:50%;
+    background:${({theme})=>theme.color.default};
+    padding:.5rem;
+    transform:scale(1) rotate(5deg);
+
+    svg {
+      ${ploc}
+      
+      stroke:${({theme})=>theme.color.primary};
+    }
+  } 
+` 
+
+export const Button = ({txt="Let's Connect", main=false}) => {
+  return (
+    <Btn className={main? 'main':''}>{txt} 
+    <span><Zap/></span></Btn>
+  )
+}

@@ -37,24 +37,14 @@ dt {
   border-right-color:transparent;
   ${rotate}
 }`
+
 export const Ld = ({ctn=false}) => {
 return (<Styled className={ctn?'ctn':''}><dt></dt></Styled>)}
 
 //array images
 export const Img = ({ig = 'Logo'}: {ig?:string}) => {
   
-  const arrs = [
-  {type:'logo.png', text:'Logo'},
-  {type:'white-logo.png', text:'white-logo'},
-  
-  //marketing
-  {type:'1-vehicles.png', text:'Vehicles'},
-  {type:'2-mobile.png', text:'Mobile'},
-  {type:'3-girl.png', text:'Girl'},
-
-  {type:'4-cars.png', text:'Cars'},
-  {type:'5-android.png', text:'Android'},
-  {type:'6-apple.png', text:'Apple'}],
+  const arrs = [{type:'logo.png', text:'Logo'}],
   chs = arrs.find(img => img.text === ig)
 
   return (

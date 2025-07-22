@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import { css } from 'styled-components'
 import { appear } from './default'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -17,16 +17,6 @@ width: number=768, height: number=550) => css`
     ${styles}
   }
 `
-
-export const Button = styled.button`
-  background:${({theme})=>theme.color.primary};
-  color:${({theme})=>theme.color.secondary};
-  letter-spacing:.05rem;
-  border-radius:.75rem;
-  font-weight:700;
-  padding:${({theme}) => 
-  `${theme.rem(12)} ${theme.rem(26)}`};  
-` 
 
 export const whatsappScroll = css`
   .whatsapp-scroll {
@@ -81,9 +71,7 @@ export const whatsappScroll = css`
         border-radius:50%;
       }
 
-      ${device(`
-        padding:0 1rem;
-      `)}
+      ${device(`padding:0 1rem;`)}
     }
   }
 `

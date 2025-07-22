@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import { css, keyframes } from 'styled-components'
 
 //animations
 export const rotate = css`
@@ -105,4 +105,33 @@ export const grid = css`
   display:grid;
   place-items:center;
   grid-template-columns:1/1;
+`
+
+export const radial = css`
+  background:radial-gradient(
+  ellipse at 50% 130%,
+  ${({theme})=>theme.color.primary} 0%,
+  ${({theme})=>theme.color.secondary} 20%,
+  ${({theme})=>theme.color.neutral} 70%,
+  ${({theme})=>theme.color.erieBlack}  100%);
+`
+
+const shimmer = keyframes`
+0% {transform:translateX(-100%)}
+100% {transform:translateX(100%)}`
+
+export const scanner = css`
+  position:relative;
+  overflow:hidden;
+
+  &::after {
+    ${({theme})=>theme.screenContainer}
+    ${({theme})=>theme.defDoubleDot}
+
+    background:linear-gradient(120deg,
+    ${({theme})=> theme.hexToRgba(theme.color.default, 0)} 0%,
+    ${({theme})=> theme.hexToRgba(theme.color.default, .2)} 50%,
+    ${({theme})=> theme.hexToRgba(theme.color.default, 0)} 100%);
+    animation:${shimmer} 1.3s ease-in-out infinite;
+  }
 `
