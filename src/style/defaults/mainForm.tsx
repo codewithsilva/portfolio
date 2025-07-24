@@ -1,5 +1,4 @@
 import { css } from 'styled-components'
-import { neuralBg } from './default'
 
 export const mainForm = css`
   main.client {
@@ -76,7 +75,6 @@ export const mainForm = css`
     }
 
     &:after {
-      ${neuralBg}
       opacity:.3 !important;
       transform:scale(1);
       z-index:-2;

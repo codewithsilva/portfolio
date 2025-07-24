@@ -1,4 +1,5 @@
 import { css } from "styled-components"
+import { radial } from "./tags"
 
 export const bare = css`
   @font-face {
@@ -59,9 +60,16 @@ export const bare = css`
 
   body {
     line-height:1.5;
-    background:${({theme})=>theme.color.default};
+    background:${({theme})=>theme.color.neutral};
     text-rendering:optimizeLegibility;
     ${({theme})=>theme.flex.center}
+
+    &:after {
+      ${({theme})=>theme.defDoubleDot}
+      ${({theme})=>theme.screen}
+      ${radial}
+      z-index:-2;
+    }
   }
 
   *::selection {
@@ -109,12 +117,12 @@ export const bare = css`
     }
 
     &::-webkit-scrollbar-thumb {
-      background:linear-gradient(135deg, #1D344C 0%, #2C5A8A 100%); 
+      background:#0F172A;
+      border-radius:1rem; 
     }
 
     &::-webkit-scrollbar-track {
-      background-color:#fff;
-      border-radius:4px;
+      background-color:#0F172A;
     }
   }
 `

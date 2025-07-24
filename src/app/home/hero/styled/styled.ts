@@ -1,12 +1,12 @@
 import styled from "styled-components"
-import { appear, ploc, radial, scanner } from "@/style/defaults/default"
+
+import { appear, ploc, scanner } from "@/style/defaults/default"
 
 export const Section = styled.section`
   position:relative;
   ${({theme})=>theme.size('100dvw', '100dvh')};
-  ${radial}
 
-  &, article:last-child {
+  &, article {
     ${({theme})=>theme.flex.column}
   }
 
@@ -14,11 +14,14 @@ export const Section = styled.section`
     text-shadow:0 0 3px ${({theme})=>theme.color.default};
   }
 
+  article, canvas, h1, bdo, a i:first-child, 
+  p {position:relative;}
+
   span:not(p span) {
     text-shadow:0 0 7px ${({theme})=>theme.color.default};
   }
 
-  article:last-child {
+  article {
     z-index:1;
     width:${({theme})=>theme.rem(800)};
     text-align:center;
@@ -26,8 +29,6 @@ export const Section = styled.section`
     ${appear({drc:'bottom', dur:.7, scl:true})}
   }
 
-  canvas, h1, span, a i:first-child, 
-  p, bdo {position:relative;}
   p, h1 {color:${({theme})=>theme.color.default};}
 
   a {
@@ -36,10 +37,10 @@ export const Section = styled.section`
     border-radius:1rem;
     z-index:1;
     border:1px solid transparent;
-    ${({theme})=>theme.shadow(theme.hexToRgba(theme.color.accent, .3))};
+    ${({theme})=>theme.shadow(theme.hexToRgba(theme.color.accent, .1))};
 
     &:hover {
-      ${({theme})=>theme.shadow(theme.hexToRgba(theme.color.accent, .4))};
+      ${({theme})=>theme.shadow(theme.hexToRgba(theme.color.accent, .2))};
 
       svg {transform:scale(1.2) rotate(10deg)}
     }
@@ -92,7 +93,7 @@ export const Section = styled.section`
 
   p {
     font-size:1.25rem;
-    top:0rem;
+    top:-.25rem;
     font-weight:500;
 
     &, span {

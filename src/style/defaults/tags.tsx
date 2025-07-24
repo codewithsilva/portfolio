@@ -1,5 +1,6 @@
 import { css } from 'styled-components'
 import { appear } from './default'
+import { blur } from './button'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const device = (styles:any) => css`
@@ -29,39 +30,9 @@ export const whatsappScroll = css`
       ${({theme})=>theme.flex.center}
     }
 
-    &.adm span {
-      gap:2rem;
-      min-height:13rem;
-      height:auto;
-      padding:0;
-      position:relative;
-      left:2.5rem;
-
-      a:nth-child(1), a:nth-child(2) {
-        padding:.5rem;
-        background:${({theme})=>theme.color.primary};
-        box-shadow:0px 0px 15px ${({theme})=>theme.color.primary};
-
-        svg {stroke:${({theme})=>theme.color.secondary}}
-      }
-    }
-
-    &:not(&.adm) span a:nth-child(2), 
-    &.adm span a:nth-child(3) {
-      background:${({theme})=>theme.hexToRgba(
-      theme.color.primary,.3)};
-      padding:.45rem;
-      ${({theme})=>theme.shadow(theme.hexToRgba(
-      theme.color.primary,.1))}
-
-      ${appear({drc:"bottom", dur:.3, scl:true})}
-      svg {opacity:.8;}
-    }
-
     span {
       padding:0;
-      gap:3rem;
-      height:10rem;
+      height:20dvh;
       ${({theme})=>theme.flex.endColumnStart}
       ${appear({drc:"right", dur:1.1, scl:true})}
 
@@ -73,5 +44,36 @@ export const whatsappScroll = css`
 
       ${device(`padding:0 1rem;`)}
     }
+  }
+`
+
+export const radial = css`
+  animation:aninRadial 30s linear infinite;
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+
+  @keyframes aninRadial {  
+    0% {
+      background: radial-gradient(
+        ellipse at 50% 130%,
+        ${({theme})=>theme.color.primary} 0%,
+        ${({theme})=>theme.color.secondary} 20%,
+          
+        ${({theme})=>theme.color.neutral} 70%,
+        ${({theme})=>theme.color.erieBlack} 100%
+      );    
+    }
+
+    25% {background: radial-gradient(ellipse at 50% 130%,
+    #3f00ff 0%, #6e00ff 20%,#101010 70%,#000000 100%);}
+  
+    50% {background: radial-gradient(ellipse at 50% 130%,
+    #ffae00 0%, #ff6a00 25%, #2b1a08 70%, #0b0b0b 100%);}
+
+    100% {background: radial-gradient(ellipse at 50% 130%,
+    #f26a1b 0%, #ab3e16 20%, #1f1a1a 70%, #0a0a0a 100%);}
+
+    100% {background: radial-gradient(ellipse at 50% 130%,
+    #fff5e0 0%, #f1c27d 30%, #1a1a1a 70%, #000000 100%);}
   }
 `

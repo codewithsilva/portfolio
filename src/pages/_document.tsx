@@ -22,7 +22,7 @@ class MyDocument extends Document {
   <Html lang="en" dir="ltr"><Head>
     <meta charSet="utf-8"/>
       <link rel="preload"
-      href="/font/work/static/WorkSans-VariableFont_wght.ttf"
+      href="/font/work/WorkSans-VariableFont_wght.ttf"
       as="font" type="font/ttf" crossOrigin="anonymous"/>
       <link rel="preload"
       href="/font/CinzelReg.ttf"

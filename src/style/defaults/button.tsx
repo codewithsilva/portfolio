@@ -1,5 +1,5 @@
-import { Zap } from "lucide-react"
-import styled from "styled-components"
+import { ArrowBigDown, ArrowDown, Download, Save, Zap } from "lucide-react"
+import styled, { css } from "styled-components"
 import { ploc } from "./default"
 
 const Btn = styled.button`
@@ -30,7 +30,7 @@ const Btn = styled.button`
     border-radius:50%;
     background:${({theme})=>theme.color.default};
     padding:.5rem;
-    transform:scale(1) rotate(5deg);
+    transform:rotate(5deg);
 
     svg {
       ${ploc}
@@ -38,11 +38,20 @@ const Btn = styled.button`
       stroke:${({theme})=>theme.color.primary};
     }
   } 
-` 
+`
 
-export const Button = ({txt="Let's Connect", main=false}) => {
-  return (
-    <Btn className={main? 'main':''}>{txt} 
-    <span><Zap/></span></Btn>
+export const Button = ({
+  txt="Let's Connect", main=false,
+  cv=false
+}) => {
+  return (  
+    <Btn className={main?'main':''}>{cv? 'Download CV' : txt} 
+    <span>{cv? <ArrowBigDown/> : <Zap/>}</span></Btn>
   )
 }
+
+export const blur = css`
+  backdrop-filter:blur(10px);
+  background:${({theme})=>theme.hexToRgba(
+  theme.color.default,.1)};
+`

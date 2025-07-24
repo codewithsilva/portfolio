@@ -8,38 +8,35 @@ import { whatsappScroll } from './defaults/tags'
 const MainStyle = createGlobalStyle`
   ${bare}
 
-  header:not(header.ctn) nav, 
-  main.landing article, footer section, .whatsapp-scroll span {
+  header, header nav, main.landing article, 
+  footer section, .whatsapp-scroll span {
     width:100dvw;
-    max-width:${({theme})=>theme.rem(1180)};
+  }
+
+  header nav, main.landing article, 
+  footer section, .whatsapp-scroll span {
+    width:100dvw;
+    max-width:${({theme})=>theme.rem(1250)};
   }
 
   header {
     background:transparent;
     transition:background-color .3s ease, padding .3s ease;
-    
-    &:not(header.ctn) {
-      ${({theme})=>theme.fixed}
-      width:100dvw;
-      z-index:3;
-      ${({theme})=>theme.flex.center}
+    ${({theme})=>theme.fixed}
+    padding:1rem 0;
+    z-index:3;
+    ${({theme})=>theme.flex.center}
 
-      &.scroll {
-        backdrop-filter:blur(10px);
-        background:${({theme})=>theme.hexToRgba(
-        theme.color.secondary,.8)};
-        padding:${({theme}) => 
-        `${theme.rem(1)} ${theme.rem(24)}`};
-        ${({theme})=>theme.shadow(theme.hexToRgba(theme.color.primary, .3))}
-      }
+    &.scroll {
+      padding:${({theme})=>`${theme.rem(10)} ${theme.rem(24)}`};
     }
   }
 
-  section {overflow:hidden}
+  section {overflow:hidden;}
 
   @media(max-width:${({theme})=>theme.rem(1150)}),
   (max-height:${({theme})=>theme.rem(550)}) {
-    header:not(header.ctn) {
+    header {
       padding:${({theme})=>`${theme.rem(10)} ${theme.rem(16)}`};
 
       &.scroll {

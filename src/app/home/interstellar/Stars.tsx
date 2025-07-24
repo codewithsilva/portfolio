@@ -22,35 +22,35 @@
   `,
 
   Container = styled.article`
-    ${({theme})=>theme.screen};
+    ${({theme})=>theme.screenContainer};
     inset:0;
     z-index:0;
     pointer-events:none;
-    overflow:hidden;
     animation:${pulseFilter} 12s ease-in-out infinite;
   `,
 
   Star = styled.span<{
-    leftPercent:number; topPercent:number; size:number;
-    opacity:number; duration:number; delay:number;
-    radius:number; direction:number;
+    $leftPercent:number; $topPercent:number; $size:number;
+    $opacity:number; $duration:number; $delay:number;
+    $radius:number; $direction:number;
   }>`
     position:absolute;
-    left:${({leftPercent})=>`${leftPercent}%`};
-    top:${({topPercent})=>`${topPercent}%`};
+    left:${({$leftPercent}) => `${$leftPercent}%`};
+    top:${({$topPercent}) => `${$topPercent}%`};
 
-    width:${({size})=>`${size}px`};
-    height:${({size})=>`${size}px`};
+    width:${({$size}) => `${$size}px`};
+    height:${({$size}) => `${$size}px`};
 
-    background:linear-gradient(135deg, rgba(173, 216, 230, .5),rgba(173, 216, 230, 1));
-    opacity:${({opacity})=>opacity};
+    background:linear-gradient(135deg, rgba(173, 216, 230, .5), rgba(173, 216, 230, 1));
+    opacity:${({$opacity}) => $opacity};
     border-radius:1rem 0;
 
     box-shadow:0 0 .5rem rgba(173, 216, 230, 1);
-    animation: ${({radius, direction, duration, delay}) => css`
-    ${moveStar(radius, direction)} ${duration}s ease-in-out infinite`};
-    animation-delay: ${({delay}) => delay}s;
+    animation:${({$radius, $direction, $duration}) => css`
+    ${moveStar($radius, $direction)} ${$duration}s ease-in-out infinite`};
+    animation-delay:${({$delay}) => $delay}s;
   `
+
 
   interface StarData {
     leftPercent:number; topPercent:number; size:number;
@@ -93,10 +93,12 @@
     if (!isClient) return null
     return (
       <Container>
-        {stars.map((star, idx) => <Star key={idx} leftPercent={star.leftPercent} 
-        topPercent={star.topPercent}
-        size={star.size} opacity={star.opacity} duration={star.duration}
-        delay={star.delay} radius={star.radius} direction={star.direction}/>)}
+        {stars.map((star, idx) => (<Star key={idx}
+        $leftPercent={star.leftPercent} $topPercent={star.topPercent}
+        $size={star.size} $opacity={star.opacity}
+
+        $duration={star.duration} $delay={star.delay}
+        $radius={star.radius} $direction={star.direction}/>))}
       </Container>
     )
   }

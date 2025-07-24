@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/codewithsilva/portfolio#readme",
   "dependencies": {
+    "@icons-pack/react-simple-icons": "^13.6.0",
     "@lottiefiles/dotlottie-react": "^0.14.3",
     "@prisma/client": "^6.11.0",
     "@radix-ui/react-accordion": "^1.2.11",

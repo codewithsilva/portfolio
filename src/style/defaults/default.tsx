@@ -1,14 +1,14 @@
 import { css, keyframes } from 'styled-components'
 
 //animations
-export const rotate = css`
-  animation:rt .7s linear infinite;
+export const rotate = (drt='.7s') => css`
+  animation:rt ${drt} linear infinite;
 
   @keyframes rt {
     from {transform:rotate(0deg)}
     to {transform:rotate(360deg)}
   }
-` 
+`
 
 export const ploc = css`
   position:relative;
@@ -105,15 +105,6 @@ export const grid = css`
   display:grid;
   place-items:center;
   grid-template-columns:1/1;
-`
-
-export const radial = css`
-  background:radial-gradient(
-  ellipse at 50% 130%,
-  ${({theme})=>theme.color.primary} 0%,
-  ${({theme})=>theme.color.secondary} 20%,
-  ${({theme})=>theme.color.neutral} 70%,
-  ${({theme})=>theme.color.erieBlack}  100%);
 `
 
 const shimmer = keyframes`

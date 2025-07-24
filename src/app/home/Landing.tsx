@@ -1,39 +1,19 @@
 import React from 'react'
 
-import { ArrowRight, Rocket } from 'lucide-react'
-import { DotLottieReact } from '@lottiefiles/dotlottie-react'
+import Header from './header/Header'
+import Hero from './hero/Hero'
 
-import { Stars } from './interstellar/Stars'
-import { Marquee } from '../resources/Marquee'
-
-import { Section } from './styled/styled'
-import { Button } from '@/style/defaults/button'
+import { Life } from './interstellar/Life'
+import { ZapBtn } from '../resources/BtnsAndOthers'
+import { Ld } from '../resources/Defaults'
 
 const Landing = () => {
   return (
-    <>
-      <Section>
-        <article>
-          <a href="https://github.com/codewithsilva"
-          target="_blank" rel="noopener noreferrer">
-            
-          <i><DotLottieReact src={`${process.env.NEXT_PUBLIC_FLAME}`}
-          renderConfig={{freezeOnOffscreen:true, autoResize:true}} loop autoplay
-          style={{width:20, height:20}}/>New</i>
-          <i>my latest project!</i> <Rocket/></a>
+    <><Header/> <Life/>
+      <Hero/>
 
-          <h1>Powering <bdo><Marquee words={['Smooth', 'Refine', 'Simple']}/>
-          </bdo> Projects With Code</h1>
-
-          <p><span>Wanderson Silva</span> • Fullstack AI Developer</p>
-
-          <Button main={true}/>
-        </article>  
-      </Section>
-
-      <Stars/>
-
-      {/*  */}
+      <article className='whatsapp-scroll'>
+      <span><ZapBtn anin={true}/></span></article>
     </>
   )
 }

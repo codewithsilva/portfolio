@@ -10,7 +10,12 @@ export const configs = {
   size: (x = '110%', y = '110%') => ({ width: x, height: y }),
   sameSize: (v = '110%') => ({ width: v, height: v }),
 
-  hexToRgba(hex: string, alpha: number = 1): string {
+  hexToRgba(hex:string, alpha:number=1):string {
+    if (typeof hex !== 'string') {
+      console.error('error:', hex)
+      return 'rgba(0,0,0,1)'
+    }
+
     const sanitizedHex = hex.replace('#', ''),
     fullHex = sanitizedHex.length === 3? sanitizedHex
     .split('').map((char) => char + char).join('') : sanitizedHex,

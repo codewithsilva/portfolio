@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react"
-import { FaWhatsapp } from 'react-icons/fa'
 import styled from 'styled-components'
 
-import { svg } from '@/app/resources/svgs'
+import { ArrowBigUpDash } from "lucide-react"
+import { FaWhatsapp } from 'react-icons/fa'
+
 import { twerk } from '@/style/defaults/default'
-import { Button } from "@/style/defaults/tags"
+import { blur } from "@/style/defaults/button"
 
 const Zap = styled.a`
   padding:.2rem;
-  background:${({theme})=>theme.gradient('#25D366','#128C7E')};
-  ${({theme})=>theme.shadow('#128C7E')}
+  opacity:.3;
+  ${blur}
   position:relative;
 
   svg path {fill:white}
@@ -20,12 +21,12 @@ const Zap = styled.a`
 
 type ZapBtnProps = {anin?:boolean; boleto?:boolean; number?:string;}
 
-export const ZapBtn = ({anin=false, boleto=false}:ZapBtnProps) => {
+export const ZapBtn = ({anin=false}:ZapBtnProps) => {
   const [isAnimating, setIsAnimating] = useState(false),
 
   openWhatsApp = () => {window.open(
   `https://wa.me/${process.env.NEXT_PUBLIC_ZAP}?text=${process.env.NEXT_PUBLIC_ZAP_MSG}`,
-  "_blank", "noopener,noreferrer")}
+  "_blank", "noopener, noreferrer")}
 
   useEffect(() => {
     if (!anin) return
@@ -41,16 +42,8 @@ export const ZapBtn = ({anin=false, boleto=false}:ZapBtnProps) => {
     return () => clearTimeout(timeoutId)
   }, [anin, isAnimating])
 
-  const className = isAnimating? 'act' : ''
-  if (boleto) {
-    return (
-      <Button onClick={openWhatsApp}>
-      <svg.whatsapp/> 2ª via boleto</Button>
-    )
-  }
-
   return (
-    <Zap className={className} onClick={openWhatsApp} 
+    <Zap onClick={openWhatsApp} className={anin?'act':''}
     onAnimationEnd={() => setIsAnimating(false)}>
     <FaWhatsapp size={40}/></Zap>
   )
@@ -69,5 +62,5 @@ export const ScrollTop = () => {
   }, [])
 
   return show? (<a onClick={scrollToTop} 
-  style={{cursor:"pointer"}}><svg.arrowHead/></a>) : null
+  style={{cursor:"pointer"}}><ArrowBigUpDash/></a>) : null
 } 
