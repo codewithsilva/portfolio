@@ -49,6 +49,15 @@ const Header = () => {
     document.removeEventListener('click',handleOutside)}
   },[menu, handleOutside])
 
+  const audioRef = useRef<HTMLAudioElement | null>(null),
+
+  clickSound = () => {
+    if (!audioRef.current) audioRef.current = new Audio('/audio/click.wav')
+    else audioRef.current.currentTime = 0
+
+    audioRef.current.play().catch(e => console.error("error", e))
+  }
+
   return (
     <HeaderCpt className={scroll? 'scroll':''}><nav>
       <span>WS</span>
@@ -59,7 +68,9 @@ const Header = () => {
       ref={el => {itemsRef.current[index] = el}}
 
       onClick={()=>{
+        clickSound()
         setMenu(false)
+
         setAct(index)
         moveHighlight(index)
       }}

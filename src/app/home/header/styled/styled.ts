@@ -20,7 +20,7 @@ export const HeaderCpt = styled.header`
 
   ul {  
     ${({theme})=>theme.flex.center}
-    gap:12rem;
+    gap:11.9rem;
 
     ol {
       gap:1rem;
