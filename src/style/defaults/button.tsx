@@ -1,7 +1,10 @@
-import { ArrowBigDown, ArrowDown, Download, Save, Zap } from "lucide-react"
-import styled, { css } from "styled-components"
-import { ploc } from "./default"
 import { useRef } from "react"
+import { useGlobalCtx } from "@/app/context/Global"
+
+import styled, { css } from "styled-components"
+import { ArrowBigDown, Zap } from "lucide-react"
+
+import { ploc } from "./default"
 
 const Btn = styled.button`
   background:${({theme})=>theme.hexToRgba(theme.color.default, .1)};
@@ -45,7 +48,8 @@ export const Button = ({
   txt="Let's Connect", main=false,
   cv=false
 }) => {
-  const audioRef = useRef<HTMLAudioElement | null>(null),
+  const {handleModal} = useGlobalCtx(),
+  audioRef = useRef<HTMLAudioElement | null>(null),
 
   handleMouseEnter = () => {
     if (!audioRef.current) audioRef.current = new Audio('/audio/btn.wav')
@@ -55,8 +59,8 @@ export const Button = ({
   }
 
   return (  
-    <Btn className={main?'main':''}
-    onMouseEnter={handleMouseEnter}>{cv? 'Download CV' : txt} 
+    <Btn className={main?'main':''} onClick={() => handleModal(true)}
+    onMouseEnter={handleMouseEnter}>{cv? 'Grab my CV' : txt} 
     <span>{cv? <ArrowBigDown/> : <Zap/>}</span></Btn>
   )
 }

@@ -90,7 +90,7 @@ export const Life = () => {
 
   getRandomAnin = () => {
     const durations = ['1.8s', '3.2s', '3.5s', '4s', '4.4s'],
-    delays = ['0s', '0.2s', '0.5s', '0.8s', '1s', '1.5s'],
+    delays = ['0s', '.2s', '.5s', '.8s', '1s', '1.5s'],
     easings = ['ease', 'ease-in', 'ease-out', 'linear', 'ease-in-out'],
 
     duration = durations[Math.floor(Math.random() * durations.length)],

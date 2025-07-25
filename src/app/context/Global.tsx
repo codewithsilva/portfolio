@@ -1,4 +1,5 @@
 "use client"
+
 import {useState, createContext, useContext, useEffect, useCallback, useMemo} from 'react'
 import toast, {Toaster, ToastOptions} from "react-hot-toast"
 import {useRouter} from 'next/router'
@@ -11,6 +12,8 @@ interface GlobalCtxProps {
   verify:Record<string,boolean>; handleVerify:(key:string | 'reset', value?:boolean)=>void;
 
   hasMail:boolean; handleHasMail:(e:boolean)=>void;
+  modal:boolean; handleModal:(e:boolean)=>void;
+
   emailUser:string; handleMail:(e:string)=>void;
   user:UserPayload | null; handleUser:(user:UserPayload | null)=>void;
 
@@ -19,65 +22,69 @@ interface GlobalCtxProps {
 }
 
 type UserPayload = {id:string; name:string; email:string}
-
 const GlobalCtx = createContext<GlobalCtxProps | undefined>(undefined)
-
 interface GlobalCtxProviderProps {children:React.ReactNode}
 
 export const GlobalCtxProvider = ({children}:GlobalCtxProviderProps) => {
-  const router = useRouter()
+  const router = useRouter(),
 
-  const [scoreUser, setScoreUser] = useState<number>(9)
-  const [ld, setLd] = useState<boolean>(false)
-  const [showAdvice, setShowAdvice] = useState<boolean>(false)
-  const [verify, setVerify] = useState<Record<string, boolean>>({})
-  const [hasMail, setHasMail] = useState<boolean>(true)
-  const [emailUser, setEmailUser] = useState<string>('')
-  const [isAuth, setIsAuth] = useState<boolean>(false)
-  const [user, setUser] = useState<UserPayload | null>(null)
+  [scoreUser, setScoreUser] = useState<number>(9),
+  handleScoreUser = useCallback((score:number) => setScoreUser(score), []),
 
-  // Memoize handlers with useCallback
-  const handleScoreUser = useCallback((score:number) => setScoreUser(score), [])
-  const handleLd = useCallback((e:boolean) => setLd(e), [])
-  const handleAdvice = useCallback((e:boolean) => setShowAdvice(e), [])
-  
-  const handleVerify = useCallback((key:string | 'reset', value?:boolean) => {
+  [ld, setLd] = useState<boolean>(false),
+  handleLd = useCallback((e:boolean) => setLd(e), []),
+
+  [showAdvice, setShowAdvice] = useState<boolean>(false),
+  handleAdvice = useCallback((e:boolean) => setShowAdvice(e), []),
+
+  handleVerify = useCallback((key:string | 'reset', value?:boolean) => {
     setVerify(prev => {
       if (key === 'reset') {
         if (Object.keys(prev).length === 0) return prev
         return {}
       }
+
       if (prev[key] === value) return prev
-      return {...prev, [key]: value ?? false}
+      return {...prev, [key]:value?? false}
     })
-  }, [])
+  }, []),
 
-  const handleHasMail = useCallback((e:boolean) => setHasMail(e), [])
-  const handleMail = useCallback((e:string) => setEmailUser(e), [])
-  const handleAuth = useCallback((type:boolean) => setIsAuth(type), [])
-  const handleUser = useCallback((items:UserPayload | null) => setUser(items), [])
+  [verify, setVerify] = useState<Record<string, boolean>>({}),
+  [hasMail, setHasMail] = useState<boolean>(true),
+  [emailUser, setEmailUser] = useState<string>(''),
 
-  const handleToast = useCallback((
-  message: string,
-  type: "success" | "error" | "loading" | "custom" = "success",
-  options?: ToastOptions
+  [isAuth, setIsAuth] = useState<boolean>(false),
+  [user, setUser] = useState<UserPayload | null>(null),
+
+  handleHasMail = useCallback((e:boolean) => setHasMail(e), []),
+  handleMail = useCallback((e:string) => setEmailUser(e), []),
+
+  handleAuth = useCallback((type:boolean) => setIsAuth(type), []),
+  handleUser = useCallback((items:UserPayload | null) => setUser(items), []),
+
+  [modal, setModal] = useState<boolean>(false),
+  handleModal = useCallback((e:boolean) => setModal(e), []),
+
+  handleToast = useCallback((message:string,
+  type:"success" | "error" | "loading" | "custom" = "success",
+  options?:ToastOptions
 ) => {
   toast.dismiss()
 
-  // Definimos o tipo explícito para o objeto com funções que recebem (message, options)
-  const toastTypes: Record<
+  const toastTypes:Record<
     "success" | "error" | "loading" | "custom",
-    (message: string, options?: ToastOptions) => string
+    (message:string, options?:ToastOptions) => string
   > = {
-    success: toast.success,
-    error: toast.error,
-    loading: toast.loading,
-    custom: (msg, opts) => toast(msg, opts),
+    success:toast.success,
+    error:toast.error,
+
+    loading:toast.loading,
+    custom:(msg, opts) => toast(msg, opts),
   }
 
-  const toastFunction = toastTypes[type] || toastTypes.success
-  toastFunction(message, options)
-}, [])
+    const toastFunction = toastTypes[type] || toastTypes.success
+    toastFunction(message, options)
+  }, [])
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -89,6 +96,7 @@ export const GlobalCtxProvider = ({children}:GlobalCtxProviderProps) => {
         setIsAuth(true)
         handleUser(user)
       } 
+
       catch (error) {
         setIsAuth(false)
         handleUser(null)
@@ -100,38 +108,23 @@ export const GlobalCtxProvider = ({children}:GlobalCtxProviderProps) => {
     fetchUser()
   }, [handleUser, router])
 
-  // Memoize entire context value to avoid unnecessary re-renders
-  const contextValue = useMemo(() => ({
-    scoreUser, handleScoreUser,
-    ld, handleLd,
-    showAdvice, handleAdvice,
-    verify, handleVerify,
-    hasMail, handleHasMail,
-    emailUser, handleMail,
-    handleToast,
-    handleAuth, isAuth,
-    user, handleUser
-  }), [
-    scoreUser, handleScoreUser,
-    ld, handleLd,
-    showAdvice, handleAdvice,
-    verify, handleVerify,
-    hasMail, handleHasMail,
-    emailUser, handleMail,
-    handleToast,
-    handleAuth, isAuth,
-    user, handleUser
-  ])
+  const contextValue = useMemo(() => ({scoreUser, handleScoreUser, ld, handleLd,
+  showAdvice, handleAdvice, verify, handleVerify, hasMail, handleHasMail,
+  emailUser, handleMail, handleToast, handleAuth, isAuth, user, handleUser, modal, handleModal}), [
+
+  scoreUser, handleScoreUser, ld, handleLd, showAdvice, handleAdvice,
+  verify, handleVerify, hasMail, handleHasMail, emailUser, handleMail, handleToast,
+  handleAuth, isAuth, user, handleUser, modal, handleModal])
 
   return (
     <GlobalCtx.Provider value={contextValue}>
-      <Toaster position="top-center" reverseOrder={false}/>
+      <Toaster position='top-center' reverseOrder={false}/>
       {children}
     </GlobalCtx.Provider>
   )
 }
 
-export const useGlobalCtx = (): GlobalCtxProps => {
+export const useGlobalCtx = ():GlobalCtxProps => {
   const context = useContext(GlobalCtx)
   if (!context) throw new Error('useGlobalCtx not valid')
   return context

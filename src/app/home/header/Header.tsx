@@ -1,10 +1,13 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { useGlobalCtx } from '@/app/context/Global'
 
 import { HeaderCpt } from './styled/styled'
 import { Button } from '@/style/defaults/button'
 
 const Header = () => {
-  const items = ['Home', 'Projects', 'Skills & Certs', 'About', 'Book a Call'],
+  const {modal} = useGlobalCtx(),
+  
+  items = ['Home', 'Projects', 'Skills & Certs', 'About', 'Book a Call'],
   [act, setAct] = useState<number>(0),
   
   highlightRef = useRef<HTMLLIElement | null>(null),
@@ -21,6 +24,10 @@ const Header = () => {
     }
   }
   useEffect(() => {if (act !== null) moveHighlight(act)}, [act])
+  useEffect(() => {
+    if (modal) setAct(items.length - 1)
+    else setAct(0)
+  }, [modal])
 
   const [menu, setMenu] = useState(false),
   menuRef = useRef<HTMLOListElement | null>(null),
@@ -62,7 +69,7 @@ const Header = () => {
     <HeaderCpt className={scroll? 'scroll':''}><nav>
       <span>WS</span>
 
-      <ul><ol ref={menuRef}><li ref={highlightRef} className="highlight"/>
+      <ul><ol ref={menuRef}><i ref={highlightRef} className="highlight"></i>
         
       {items.map((item, index) => <li key={index}
       ref={el => {itemsRef.current[index] = el}}

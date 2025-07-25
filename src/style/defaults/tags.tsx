@@ -53,7 +53,7 @@ export const radial = css`
   background-repeat:no-repeat;
 
   @keyframes aninRadial {  
-    0% {
+    0%, 100% {
       background: radial-gradient(
         ellipse at 50% 130%,
         ${({theme})=>theme.color.primary} 0%,
@@ -70,10 +70,7 @@ export const radial = css`
     50% {background: radial-gradient(ellipse at 50% 130%,
     #ffae00 0%, #ff6a00 25%, #2b1a08 70%, #0b0b0b 100%);}
 
-    100% {background: radial-gradient(ellipse at 50% 130%,
+    75% {background: radial-gradient(ellipse at 50% 130%,
     #f26a1b 0%, #ab3e16 20%, #1f1a1a 70%, #0a0a0a 100%);}
-
-    100% {background: radial-gradient(ellipse at 50% 130%,
-    #fff5e0 0%, #f1c27d 30%, #1a1a1a 70%, #000000 100%);}
   }
 `

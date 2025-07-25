@@ -11,7 +11,7 @@ export const HeaderCpt = styled.header`
     ${({theme})=>theme.flex.space}
   }
 
-  span, ol {position:relative;}
+  span, ol, ol li {position:relative;}
 
   span:not(button span) {
     font-size:1.4rem;
@@ -19,8 +19,11 @@ export const HeaderCpt = styled.header`
   }
 
   ul {  
-    ${({theme})=>theme.flex.center}
-    gap:11.9rem;
+    gap:13rem;
+
+    &, ol ul li {
+      ${({theme})=>theme.flex.center}
+    }
 
     ol {
       gap:1rem;
@@ -29,32 +32,49 @@ export const HeaderCpt = styled.header`
       border:1px solid ${({theme})=>theme.hexToRgba(theme.color.default, .05)};
       ${appear({drc:'bottom', dur:.8, scl:true})}
 
-      &, li:first-child {
+      &, i {
         ${blur}
       }
 
+      i, li {border-radius:.75rem;}
+
+      i {
+        position:absolute;
+        z-index:-1;
+        top:${({theme})=>theme.rem(1)};
+        height:93%;
+        pointer-events:none;
+        ${({theme})=>theme.transition()}
+      }
+
       li {
-        border-radius:.75rem;
         cursor:pointer;
         padding:.35rem .75rem;
         font-size:.8rem;
         letter-spacing:.05rem;
         color:${({theme})=>theme.color.white};
 
-        &:first-child {
-          position:absolute;
-          z-index:-1;
-          top:${({theme})=>theme.rem(1)};
-          height:93%;
-          ${({theme})=>theme.transition()}
-        }
-
         &.act {
           text-shadow:0 0 10px ${({theme})=>theme.color.default};
 
           &:after {
             ${({theme})=>theme.defDoubleDot}
-          
+            ${({theme})=>theme.screenContainer}
+            ${blur}
+            background:${({theme})=>theme.hexToRgba(theme.color.default, .3)};
+            left:25%;
+            top:-.35rem;
+            width:50%;
+            opacity:1;
+            height:.3rem;
+            border-radius:1rem 1rem .25rem .25rem;
+            z-index:10;
+            animation:detail .2s linear forwards;
+          }
+
+          @keyframes detail {
+            from {width:0%;}
+            to {width:50%;}
           }
         }
       }

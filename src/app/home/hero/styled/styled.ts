@@ -1,6 +1,7 @@
 import styled from "styled-components"
 
 import { appear, ploc, scanner } from "@/style/defaults/default"
+import { blur } from "@/style/defaults/button"
 
 export const Section = styled.section`
   position:relative;
@@ -68,8 +69,7 @@ export const Section = styled.section`
     }
 
     i:first-child {
-      background:${({theme})=>theme.hexToRgba(theme.color.accent, .2)};
-      backdrop-filter:blur(2px);
+      ${blur}
       padding:.2rem .75rem .2rem .25rem;
       border-radius:1rem;
       z-index:2;

@@ -51,7 +51,6 @@
     animation-delay:${({$delay}) => $delay}s;
   `
 
-
   interface StarData {
     leftPercent:number; topPercent:number; size:number;
     opacity:number; duration:number; delay:number;
