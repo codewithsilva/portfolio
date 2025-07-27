@@ -16,6 +16,7 @@ export const HeaderCpt = styled.header`
   span:not(button span) {
     font-size:1.4rem;
     top:.2rem;
+    ${appear({drc:'left', dur:.7, scl:true})}
   }
 
   ul {  
@@ -83,15 +84,14 @@ export const HeaderCpt = styled.header`
     button:nth-child(2) {
       font-size:.6rem;
       padding:.8rem .5rem .6rem 1.25rem;
-      border-radius:1rem;
       box-shadow:0 0 1px ${({theme})=>theme.hexToRgba(theme.color.default, .1)};
+      ${appear({drc:'right', dur:.7, scl:true})}
 
       span {
         border-radius:.75rem;
         background:${({theme})=>theme.color.default};
         top:-.25rem;
         padding:.25rem;
-        transform:scale(1) rotate(2deg);
     
         svg {
           opacity:.7;

@@ -4,6 +4,8 @@ import { bare } from './defaults/bare'
 import { mainForm } from './defaults/mainForm'
 
 import { whatsappScroll } from './defaults/tags'
+import { blur } from './defaults/button'
+import { appear } from './defaults/default'
 
 const MainStyle = createGlobalStyle`
   ${bare}
@@ -33,6 +35,13 @@ const MainStyle = createGlobalStyle`
   }
 
   section {overflow:hidden;}
+
+  #modal-root:has(.act) {
+    ${appear({opacityOnly:true})}
+    ${({theme})=>theme.screen}
+    ${({theme})=>theme.flex.centerEnd}
+    ${blur}
+  }
 
   @media(max-width:${({theme})=>theme.rem(1150)}),
   (max-height:${({theme})=>theme.rem(550)}) {

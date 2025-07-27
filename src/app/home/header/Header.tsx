@@ -3,9 +3,11 @@ import { useGlobalCtx } from '@/app/context/Global'
 
 import { HeaderCpt } from './styled/styled'
 import { Button } from '@/style/defaults/button'
+  
+import Modal from '../modal/Modal'
 
 const Header = () => {
-  const {modal} = useGlobalCtx(),
+  const {modal, handleModal} = useGlobalCtx(),
   
   items = ['Home', 'Projects', 'Skills & Certs', 'About', 'Book a Call'],
   [act, setAct] = useState<number>(0),
@@ -13,7 +15,7 @@ const Header = () => {
   highlightRef = useRef<HTMLLIElement | null>(null),
   itemsRef = useRef<(HTMLLIElement | null)[]>([]),
 
-  moveHighlight = (index: number) => {
+  moveHighlight = (index:number) => {
     const el = itemsRef.current[index],
     highlight = highlightRef.current
 
@@ -66,7 +68,7 @@ const Header = () => {
   }
 
   return (
-    <HeaderCpt className={scroll? 'scroll':''}><nav>
+    <><HeaderCpt className={scroll? 'scroll':''}><nav>
       <span>WS</span>
 
       <ul><ol ref={menuRef}><i ref={highlightRef} className="highlight"></i>
@@ -80,15 +82,17 @@ const Header = () => {
 
         setAct(index)
         moveHighlight(index)
+        if (index === (items.length - 1)) handleModal(true)
       }}
       className={act === index?'act':''}>{item}</li>)}</ol>
         
       <Button cv={true}/>
       <button ref={buttonRef} onClick={()=>setMenu(true)}>
-        {Array.from({length:3},(_,index) => (
-        <span key={index}></span>))}
+      {Array.from({length:3},(_,index) => <span key={index}/>)}
       </button></ul>
     </nav></HeaderCpt>
+    
+    {modal && <Modal/>}</>
   )
 }
 

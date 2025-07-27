@@ -41,14 +41,21 @@
     width:${({$size}) => `${$size}px`};
     height:${({$size}) => `${$size}px`};
 
-    background:linear-gradient(135deg, rgba(173, 216, 230, .5), rgba(173, 216, 230, 1));
-    opacity:${({$opacity}) => $opacity};
+    background:${({theme})=>theme.gradient(
+    theme.color.surface, 
+    theme.hexToRgba(theme.color.surface, .5), '135deg')};
+    opacity:0;
     border-radius:1rem 0;
 
-    box-shadow:0 0 .5rem rgba(173, 216, 230, 1);
-    animation:${({$radius, $direction, $duration}) => css`
+    box-shadow:0 0 .5rem ${({theme})=>theme.color.surface};
+    animation:appear .7s linear forwards, ${({$radius, $direction, $duration}) => css`
     ${moveStar($radius, $direction)} ${$duration}s ease-in-out infinite`};
     animation-delay:${({$delay}) => $delay}s;
+
+    @keyframes appear {
+      from {opacity:0;}
+      to {opacity:1;}
+    }
   `
 
   interface StarData {
@@ -81,7 +88,7 @@
         if (tooClose) continue
         const baseSize = Math.random() * 21, size = baseSize * screenFactor
         starArray.push({leftPercent, topPercent, size,
-          opacity:Math.random() * 0.3 + 0.4, duration:Math.random() * 6 + 6,
+          opacity:Math.random() * .3 + .4, duration:Math.random() * 6 + 6,
           delay:Math.random() * 3, radius:Math.random() * 40 + 20, direction:Math.random() * Math.PI * 2,
         })
       }

@@ -25,7 +25,7 @@ export const ZapBtn = ({anin=false}:ZapBtnProps) => {
   const [isAnimating, setIsAnimating] = useState(false),
 
   openWhatsApp = () => {window.open(
-  `https://wa.me/${process.env.NEXT_PUBLIC_ZAP}?text=${process.env.NEXT_PUBLIC_ZAP_MSG}`,
+  `${process.env.NEXT_PUBLIC_ZAP}`,
   "_blank", "noopener, noreferrer")}
 
   useEffect(() => {

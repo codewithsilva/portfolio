@@ -77,6 +77,7 @@ export const configs = {
     centerStart: { display: 'flex', justifyContent: 'center', alignItems: 'flex-start' },
 
     endCenter: { display: 'flex', justifyContent: 'flex-end', alignItems: 'center' },
+    centerEnd: { display: 'flex', justifyContent: 'center', alignItems: 'flex-end' },
     column: { display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' },
     columnSpace: { display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center' },
     startColumnSpace: { display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'flex-start' },

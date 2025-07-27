@@ -72,7 +72,12 @@ class MyDocument extends Document {
       }}/>
   </Head>
   
-  <body><Main/><NextScript/></body></Html>)}
+    <body>
+      <Main/>
+      <div id="modal-root"></div>
+      <NextScript/>
+    </body>
+  </Html>)}
 }
 
 export default MyDocument

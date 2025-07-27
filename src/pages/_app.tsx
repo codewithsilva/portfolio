@@ -10,7 +10,7 @@ const App = ({Component, pageProps}:AppProps) => {
     <GlobalCtxProvider>
       <ThemeProvider theme={configs}>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Codewithsilva | Fullscack Ai Developer</title>
+        <title>{process.env.NEXT_PUBLIC_TITLE}</title>
 
         <Component {...pageProps}/>
         <MainStyle/>

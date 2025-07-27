@@ -1,8 +1,8 @@
 import { useRef } from "react"
-import { useGlobalCtx } from "@/app/context/Global"
-
 import styled, { css } from "styled-components"
-import { ArrowBigDown, Zap } from "lucide-react"
+
+import { ClipboardList, Zap } from "lucide-react"
+import { useGlobalCtx } from "@/app/context/Global"
 
 import { ploc } from "./default"
 
@@ -61,7 +61,7 @@ export const Button = ({
   return (  
     <Btn className={main?'main':''} onClick={() => handleModal(true)}
     onMouseEnter={handleMouseEnter}>{cv? 'Grab my CV' : txt} 
-    <span>{cv? <ArrowBigDown/> : <Zap/>}</span></Btn>
+    <span>{cv? <ClipboardList/> : <Zap/>}</span></Btn>
   )
 }
 
@@ -70,3 +70,28 @@ export const blur = css`
   background:${({theme})=>theme.hexToRgba(
   theme.color.default,.1)};
 `
+
+export const status = css`
+  gap:.5rem;
+
+  &::before {
+    ${({theme})=>theme.defDoubleDot}
+    position:relative;
+    width:.75rem;
+    height:.75rem;
+    background:${({theme})=>theme.color.default};
+    border-radius:50%;
+    animation:pulse 1.4s linear infinite;
+    box-shadow:0 0 0 0 ${({theme})=>theme.color.default};
+  }
+
+  @keyframes pulse {
+    0% {box-shadow:0 0 0 0 
+    ${({theme})=>theme.hexToRgba(theme.color.default, .6)};}
+    70% {box-shadow:0 0 0 10px
+     ${({theme})=>theme.hexToRgba(theme.color.default, 0)};}
+    100% {box-shadow:0 0 0 0 
+    ${({theme})=>theme.hexToRgba(theme.color.default, 0)};}
+  }
+`
+
