@@ -1,20 +1,21 @@
 import styled from 'styled-components'
+import { useGlobalCtx } from '@/app/context/Global'
 
 import { SiWhatsapp, SiTelegram } from 'react-icons/si'
 import { FaFilePdf, FaFileWord } from 'react-icons/fa'
 
 import { ExternalLink, Download } from 'lucide-react'
+import { downloadResume } from './download'
 
 import { blur, status } from '@/style/defaults/button'
 import { appear } from '@/style/defaults/default'
-import { downloadResume } from './download'
 
 const SocialsCtn = styled.div`
   ${({theme})=>theme.flex.column}
   gap:1rem;
 
   nav, span, p, button, li {width:100%;}
-  nav, p, button {
+  nav, p, nav ol li:last-child, button {
     ${({theme})=>theme.flex.center}
   }
 
@@ -33,13 +34,13 @@ const SocialsCtn = styled.div`
       height:7rem;
     }
 
-    li, p, button {
+    li, button {
       padding:.5rem;
       padding-left:1rem;
+      gap:.5rem;
     }
 
     li:first-child {
-      gap:.5rem;
       overflow:hidden;
       height:3.5rem;
       position:relative;
@@ -61,7 +62,7 @@ const SocialsCtn = styled.div`
       }
     }
 
-    p, button {gap:.5rem;}
+    li:last-child {text-decoration:underline}
   }
 
   p:not(nav ol p) {
@@ -78,7 +79,9 @@ const SocialsCtn = styled.div`
 
 type InfoPanelProps = {type:'contact' | 'resume'}
 export const Containers = ({type}:InfoPanelProps) => {
-  const data = {contact:[{icon:<SiWhatsapp size={24} fill="#25D366"/>,
+  const {handleLd} = useGlobalCtx(),
+  
+  data = {contact:[{icon:<SiWhatsapp size={24} fill="#25D366"/>,
   label:'Whatsapp', detail:`${process.env.NEXT_PUBLIC_NUMBER}`,
   extra: <ExternalLink size={16} />},
   
@@ -95,13 +98,36 @@ export const Containers = ({type}:InfoPanelProps) => {
   resume:'Easily updatable via .env'}
 
   return (
-    <SocialsCtn><nav>{data[type].map((item, i) => 
-    <ol key={i}><li>{item.icon} {item.label}</li>
+    <SocialsCtn><nav>
+    
+    {data[type].map((item, i) => {
+      const isContact = type === 'contact',
+      handleClick = () => {if (!isContact) return  
 
-    {'detail' in item && <li>{item.detail} {item.extra}</li>}
-    {'button' in item && <button onClick={() => 
-    downloadResume(item.label.toLowerCase() as 'pdf' | 'docx')}>
-    {item.button} <Download size={16}/></button>}</ol>)}</nav>
+      const urls = {
+        Whatsapp:process.env.NEXT_PUBLIC_ZAP,
+        Telegram:process.env.NEXT_PUBLIC_TELEGRAM,
+      },
+      link = urls[item.label as 'Whatsapp' | 'Telegram']
+      if (link) window.open(link, '_blank')
+    }
+
+    return (
+    <ol key={i} onClick={handleClick}>
+      <li>{item.icon} {item.label}</li>
+      {'detail' in item && <li>{item.detail} 
+      {item.extra}</li>}
+
+      {'button' in item && (
+      <button onClick={e => {
+        e.stopPropagation()
+
+        downloadResume(
+        item.label.toLowerCase() as 'pdf' | 'docx'
+        , handleLd)
+      }}>
+      {item.button} <Download size={16}/></button>)}
+    </ol>)})}</nav>
     <p>{footer[type]}</p></SocialsCtn>
-  )
+  )     
 }

@@ -5,6 +5,7 @@ import { ClipboardList, Zap } from "lucide-react"
 import { useGlobalCtx } from "@/app/context/Global"
 
 import { ploc } from "./default"
+import { downloadResume } from "@/app/home/modal/containers/download"
 
 const Btn = styled.button`
   background:${({theme})=>theme.hexToRgba(theme.color.default, .1)};
@@ -48,7 +49,7 @@ export const Button = ({
   txt="Let's Connect", main=false,
   cv=false
 }) => {
-  const {handleModal} = useGlobalCtx(),
+  const {handleModal, handleLd} = useGlobalCtx(),
   audioRef = useRef<HTMLAudioElement | null>(null),
 
   handleMouseEnter = () => {
@@ -59,7 +60,9 @@ export const Button = ({
   }
 
   return (  
-    <Btn className={main?'main':''} onClick={() => handleModal(true)}
+    <Btn className={main?'main':''} onClick={() => {
+      cv? downloadResume('pdf', handleLd) : handleModal(true)
+    }}
     onMouseEnter={handleMouseEnter}>{cv? 'Grab my CV' : txt} 
     <span>{cv? <ClipboardList/> : <Zap/>}</span></Btn>
   )
@@ -79,19 +82,15 @@ export const status = css`
     position:relative;
     width:.75rem;
     height:.75rem;
-    background:${({theme})=>theme.color.default};
+    background:#22c55e;
     border-radius:50%;
     animation:pulse 1.4s linear infinite;
-    box-shadow:0 0 0 0 ${({theme})=>theme.color.default};
+    box-shadow:0 0 0 0 #22c55e;
   }
 
   @keyframes pulse {
-    0% {box-shadow:0 0 0 0 
-    ${({theme})=>theme.hexToRgba(theme.color.default, .6)};}
-    70% {box-shadow:0 0 0 10px
-     ${({theme})=>theme.hexToRgba(theme.color.default, 0)};}
-    100% {box-shadow:0 0 0 0 
-    ${({theme})=>theme.hexToRgba(theme.color.default, 0)};}
+    0% {box-shadow:0 0 0 0 rgba(34, 197, 94, 0.6);}
+    70% {box-shadow:0 0 0 10px rgba(34, 197, 94, 0);}
+    100% {box-shadow:0 0 0 0 rgba(34, 197, 94, 0);}
   }
 `
-

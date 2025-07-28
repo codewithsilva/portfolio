@@ -8,7 +8,7 @@ export const ModalStyles = styled.article`
   padding:1.15rem 1.5rem;
   overflow:hidden;
   border-radius:8rem 8rem 0 0;
-  ${({theme})=>theme.shadow(theme.hexToRgba(theme.color.default, .3))}
+  ${({theme})=>theme.shadow(theme.hexToRgba(theme.color.neutral, .3))}
   ${({theme})=>theme.flex.startCenterColumn}
   color:${({theme})=>theme.color.neutral};
   animation:from-bottom .3s linear forwards;
@@ -18,6 +18,9 @@ export const ModalStyles = styled.article`
     position:relative;
   }
   &, ul {gap:1.25rem;}
+
+  background:${({theme})=>theme.hexToRgba(
+  theme.color.neutral, .6)} !important;
 
   a, ul, ol.opts {
     ${({theme})=>theme.flex.center}
