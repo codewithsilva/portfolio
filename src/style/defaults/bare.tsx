@@ -47,9 +47,7 @@ export const bare = css`
     font-weight:400;
   }
 
-  html, body, main {
-    overflow-x:hidden;
-  }
+  html, body, main {overflow-x:hidden}
 
   html {
     font-size:1rem;

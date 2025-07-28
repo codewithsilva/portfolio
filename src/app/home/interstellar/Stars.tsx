@@ -13,6 +13,8 @@
     }
   `,
 
+  // animation:${pulseFilter} 12s ease-in-out infinite;
+
   moveStar = (radius:number, direction:number) => keyframes`
     0%, 100% {transform:translate3d(0, 0, 0) rotate(0deg);}
     50% {
@@ -22,11 +24,10 @@
   `,
 
   Container = styled.article`
-    ${({theme})=>theme.screenContainer};
+    ${({theme})=>theme.screen};
     inset:0;
     z-index:0;
     pointer-events:none;
-    animation:${pulseFilter} 12s ease-in-out infinite;
   `,
 
   Star = styled.span<{

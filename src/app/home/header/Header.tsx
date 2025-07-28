@@ -71,7 +71,8 @@ const Header = () => {
     <><HeaderCpt className={scroll? 'scroll':''}><nav>
       <span>WS</span>
 
-      <ul><ol ref={menuRef}><i ref={highlightRef} className="highlight"></i>
+      <ul className={menu?'act':''}>
+        <ol ref={menuRef}><i ref={highlightRef} className="highlight"></i>
         
       {items.map((item, index) => <li key={index}
       ref={el => {itemsRef.current[index] = el}}

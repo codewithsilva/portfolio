@@ -1,11 +1,11 @@
-import { Lock, Mail, Eye } from 'lucide-react'
+import { Lock, Mail, Eye, User } from 'lucide-react'
 
 type SvgComponents = {
   [key:string]:React.FunctionComponent<React.SVGProps<SVGSVGElement>>
 }
 
 const icons:SvgComponents = {
-  email:Mail, eye:Eye, psw:Lock,
+  user:User, email:Mail, eye:Eye, psw:Lock,
 }
 
 export const svg = new Proxy(icons, {

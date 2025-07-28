@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components'
 
-import { appear, hideMenu } from '@/style/defaults/default'
+import { appear } from '@/style/defaults/default'
 import { device } from '@/style/defaults/tags'
 
-import { menu } from './mobile'
+import { mobile } from './mobile'
 import { blur } from '@/style/defaults/button'
 
 export const HeaderCpt = styled.header`
@@ -104,18 +104,5 @@ export const HeaderCpt = styled.header`
     button:last-child {display:none;}
   }
 
-  ${device(css`
-    ul:first-child {
-      ${({theme}) => theme.size(
-      theme.rem(80), 'auto')}
-
-      ol {display:none;}
-
-      &.act.closing ol {
-        ${hideMenu}
-      }
-    }
-    
-    ${menu}
-  `)}
+  ${device(css`${mobile}`)}
 `

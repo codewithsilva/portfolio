@@ -1,7 +1,10 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 import { appear, ploc, scanner } from "@/style/defaults/default"
 import { blur } from "@/style/defaults/button"
+
+import { device } from "@/style/defaults/tags"
+import { mobile } from "./details"
 
 export const Section = styled.section`
   position:relative;
@@ -35,11 +38,11 @@ export const Section = styled.section`
   a {
     ${appear({drc:'top', dur:.7, scl:true})}
     background:${({theme})=>theme.hexToRgba(theme.color.accent, .1)};
-    border-radius:1rem;
     z-index:1;
     border:1px solid transparent;
     ${({theme})=>theme.shadow(theme.hexToRgba(theme.color.accent, .1))};
 
+    &, i:nth-child(2) {border-radius:1rem}
     &:hover {
       ${({theme})=>theme.shadow(theme.hexToRgba(theme.color.accent, .2))};
 
@@ -51,7 +54,6 @@ export const Section = styled.section`
 
       &:nth-child(2) {
         ${scanner}
-        border-radius:.25rem;
         padding:0 .5rem;
       }
     }
@@ -86,7 +88,6 @@ export const Section = styled.section`
     line-height:${({theme})=>theme.rem(80)};
     font-size:3.5rem;
     font-weight:600;
-    padding-top:-2rem;
     letter-spacing:.2rem;
     top:-2rem;
   }
@@ -101,4 +102,6 @@ export const Section = styled.section`
       theme.hexToRgba(theme.color.default, .1))};
     }
   }
+
+  ${device(css`${mobile}`)}
 `

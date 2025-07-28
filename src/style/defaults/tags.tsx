@@ -23,7 +23,7 @@ export const whatsappScroll = css`
   .whatsapp-scroll {
     position:fixed;
     bottom:3rem;
-    width:100dvw;
+    width:90dvw;
     &, span {pointer-events:none;}
 
     &, span a {
@@ -41,8 +41,6 @@ export const whatsappScroll = css`
         cursor:pointer;
         border-radius:50%;
       }
-
-      ${device(`padding:0 1rem;`)}
     }
   }
 `

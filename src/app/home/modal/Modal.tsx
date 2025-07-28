@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom'
 import { motion, useDragControls, useMotionValue, animate } from 'framer-motion'
 
 import { useGlobalCtx } from '@/app/context/Global'
-import { ModalStyles } from './styled/styled'
+import { ModalStyles } from './resources/styled'
 
-import { links } from './resources/data'
+import { links } from './resources/funcs'
 import Opts from './containers/Opts'
 
 const Modal = () => {

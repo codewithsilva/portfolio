@@ -5,7 +5,7 @@ import { SiWhatsapp, SiTelegram } from 'react-icons/si'
 import { FaFilePdf, FaFileWord } from 'react-icons/fa'
 
 import { ExternalLink, Download } from 'lucide-react'
-import { downloadResume } from './download'
+import { downloadResume } from '../resources/funcs'
 
 import { blur, status } from '@/style/defaults/button'
 import { appear } from '@/style/defaults/default'
@@ -32,6 +32,8 @@ const SocialsCtn = styled.div`
       gap:.5rem;
       width:50%;
       height:7rem;
+      background:${({theme})=>theme.hexToRgba(
+      theme.color.neutral, .6)};
     }
 
     li, button {

@@ -4,8 +4,8 @@ import { useGlobalCtx } from '@/app/context/Global'
 import { Visibility } from './resources/Visibility'
 import { formatName } from '@/app/resources/utils'
 
-import { Strong } from './styled/Styled'
 import { svg } from '@/app/resources/svgs'
+import { Strong } from './styled/Styled'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string; icon?: keyof typeof svg; psw?: boolean; 

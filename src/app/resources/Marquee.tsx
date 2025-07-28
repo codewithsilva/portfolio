@@ -1,13 +1,29 @@
+import { device } from "@/style/defaults/tags";
 import React, {useEffect, useState} from "react"
-import styled from "styled-components";
-
+import styled, { css } from "styled-components"
 
 interface VerticalMarquee {
   words:string[]; delay?:number;
   transitionDuration?: number
 }
 
-const Bdo = styled.bdo`
+const mobile = css`
+  width:13.5rem;
+  top:1rem;
+  left:-.5rem;
+
+  &, span {
+    padding:.5rem;
+    height:${({theme})=>theme.rem(55)};
+  }
+
+  span {
+    top:-1.5rem;
+    font-size:2.75rem;
+  }
+`,
+
+Bdo = styled.bdo`
   width:25.5rem;
   overflow:hidden;
   top:2.5rem;
@@ -25,6 +41,8 @@ const Bdo = styled.bdo`
     pointer-events:none;
     ${({theme})=>theme.absolute}
   }
+
+  ${device(css`${mobile}`)}
 `
 
 export const Marquee: React.FC<VerticalMarquee> = ({

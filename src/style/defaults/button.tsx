@@ -5,9 +5,26 @@ import { ClipboardList, Zap } from "lucide-react"
 import { useGlobalCtx } from "@/app/context/Global"
 
 import { ploc } from "./default"
-import { downloadResume } from "@/app/home/modal/containers/download"
+import { downloadResume } from "@/app/home/modal/resources/funcs"
+import { device } from "./tags"
 
-const Btn = styled.button`
+const mobile = css`
+  border-radius:1rem;
+  font-size:.6rem;
+  padding:.3rem .5rem .2rem 1rem;
+
+  &.main {
+    gap:.15rem;
+    top:1.75rem;
+    box-shadow:0 0 3px ${({theme})=>theme.hexToRgba(theme.color.default, .3)};
+  }
+
+  span svg {
+    ${({theme})=>theme.sameSize(theme.rem(15))}
+  }
+`,
+
+Btn = styled.button`
   background:${({theme})=>theme.hexToRgba(theme.color.default, .1)};
   color:${({theme})=>theme.color.default};
   text-shadow:0 0 3px ${({theme})=>theme.color.default};
@@ -42,7 +59,9 @@ const Btn = styled.button`
       
       stroke:${({theme})=>theme.color.primary};
     }
-  } 
+  }
+  
+  ${device(css`${mobile}`)}
 `
 
 export const Button = ({

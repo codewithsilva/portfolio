@@ -83,6 +83,14 @@ export const ModalStyles = styled.article`
     }
   }
 
+  @media (max-height:${({theme})=>theme.rem(500)}) {
+    height:100dvh;
+    border-radius:0rem;
+    overflow-y:auto;
+    animation:none;
+    top:7.5rem;
+  }
+
   @keyframes from-bottom {
     from {top:25rem;}
     to {top:0;}
