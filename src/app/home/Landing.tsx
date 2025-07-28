@@ -16,9 +16,10 @@ const Landing = () => {
     <><Header/> <Life/>
       <Hero/>
 
+      
+
       <article className='whatsapp-scroll'>
       <span><ZapBtn anin={true}/></span></article>
-
       {ld && <Ld/>}
     </>
   )
