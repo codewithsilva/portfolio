@@ -9,7 +9,7 @@ import { blur } from "@/style/defaults/button"
 
 const Zap = styled.a`
   padding:.2rem;
-  opacity:.3;
+  opacity:.8;
   ${blur}
   position:relative;
 
