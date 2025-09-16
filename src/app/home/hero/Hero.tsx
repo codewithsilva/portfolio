@@ -15,7 +15,7 @@ const Hero = () => {
     <>
       <Section>
         <article>
-          <a href="https://sushi-phi-three.vercel.app/"
+          <a href="sushi-phi-three.vercel.app/"
           target="_blank" rel="noopener noreferrer">
             
           <i><DotLottieReact src={`${process.env.NEXT_PUBLIC_FLAME}`}
