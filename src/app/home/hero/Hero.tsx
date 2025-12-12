@@ -15,13 +15,13 @@ const Hero = () => {
     <>
       <Section>
         <article>
-          <a href="sushi-phi-three.vercel.app/"
+          <a href="https://voizy.app"
           target="_blank" rel="noopener noreferrer">
             
           <i><DotLottieReact src={`${process.env.NEXT_PUBLIC_FLAME}`}
           renderConfig={{freezeOnOffscreen:true, autoResize:true}} loop autoplay
           style={{width:20, height:20}}/>New</i>
-          <i>my latest project!</i> <Rocket/></a>
+          <i>App with Real-Time Translation & Transcription</i> <Rocket/></a>
 
           <h1>Powering <Marquee words={['Smooth', 'Refine', 'Simple']}/> Projects With Code</h1>
 

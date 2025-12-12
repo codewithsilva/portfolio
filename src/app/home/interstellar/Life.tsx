@@ -28,7 +28,7 @@ export const Life = () => {
     { Icon: SiTelegram, fill: '#26A5E4', title: 'Telegram Bot', anim: 'blink 3.1s ease .6s infinite alternate' },
     { Icon: SiOpenai, fill: '#10A37F', title: 'OpenAI', anim: 'blink 4.3s ease-out 0s infinite alternate' },
     { Icon: SiGithub, fill: '#FFF', title: 'GitHub (2)', anim: 'blink 3.8s ease .2s infinite alternate' },
-    { img: '/svgs/java.svg', alt: 'Java', anim: 'blink 3s ease 0s infinite alternate' },
+    { img: '/svgs/rust.svg', alt: 'Rust', anim: 'blink 3s ease 0s infinite alternate' },
   ],
 
   renderedIcons = icons.map((item, i) => {

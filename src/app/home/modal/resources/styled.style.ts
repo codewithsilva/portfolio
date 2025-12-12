@@ -3,24 +3,24 @@ import styled from "styled-components"
 import { blur } from "@/style/defaults/button"
 
 export const ModalStyles = styled.article`
-  width:30rem;
-  height:28rem;
+  ${({theme}) => theme.size('30rem', '28rem')}
   padding:1.15rem 1.5rem;
+
   overflow:hidden;
-  border-radius:8rem 8rem 0 0;
+  border-radius:6rem 5rem 0 0;
   ${({theme})=>theme.shadow(theme.hexToRgba(theme.color.neutral, .3))}
+
   ${({theme})=>theme.flex.startCenterColumn}
   color:${({theme})=>theme.color.neutral};
+
   animation:from-bottom .3s linear forwards;
+  background:${({theme}) => theme.color.neutral} !important;
 
   &, a:after, ol.opts, ol.opts li.on {
     ${blur}
     position:relative;
   }
   &, ul {gap:1.25rem;}
-
-  background:${({theme})=>theme.hexToRgba(
-  theme.color.neutral, .6)} !important;
 
   a, ul, ol.opts {
     ${({theme})=>theme.flex.center}
