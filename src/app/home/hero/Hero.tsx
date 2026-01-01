@@ -25,7 +25,7 @@ const Hero = () => {
 
           <h1>Powering <Marquee words={['Smooth', 'Refine', 'Simple']}/> Projects With Code</h1>
 
-          <p><span>Wanderson Silva</span> • Fullstack AI Developer</p> 
+          <p><span>Wanderson Silva</span> • Fullstack N8N Engineer</p> 
 
           <Button main={true}/>
         </article>

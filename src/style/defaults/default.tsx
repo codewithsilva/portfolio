@@ -39,7 +39,7 @@ export const fadeInLetter = css`
 ` 
 
 export const appear = ({
-  drc="top", dur=0.3, scl=false, rel=true,
+  drc="top", dur=.3, scl=false, rel=true,
   opacityOnly=false, toOpacity=1
 } = {}) => {
   const sanitizedOpacity = Math.round(toOpacity * 100),
