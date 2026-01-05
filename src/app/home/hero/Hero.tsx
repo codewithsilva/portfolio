@@ -21,7 +21,7 @@ const Hero = () => {
           <i><DotLottieReact src={`${process.env.NEXT_PUBLIC_FLAME}`}
           renderConfig={{freezeOnOffscreen:true, autoResize:true}} loop autoplay
           style={{width:20, height:20}}/>New</i>
-          <i>App with Real-Time Translation & Transcription</i> <Rocket/></a>
+          <i>Real-Time Speech Translation App</i> <Rocket/></a>
 
           <h1>Powering <Marquee words={['Smooth', 'Refine', 'Simple']}/> Projects With Code</h1>
 

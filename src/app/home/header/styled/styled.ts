@@ -20,7 +20,8 @@ export const HeaderCpt = styled.header`
   }
 
   ul {  
-    gap:13rem;
+    /* gap:13rem; */
+    gap:19rem;
 
     &, ol ul li {
       ${({theme})=>theme.flex.center}

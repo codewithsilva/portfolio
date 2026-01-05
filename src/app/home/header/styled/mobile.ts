@@ -9,7 +9,7 @@ export const mobile = () => css`
   ul {
     gap:.75rem;
     position:relative;
-    ol {display:none}
+    ol {&, i {display:none}}
 
     &.act {
       &:before, ol {

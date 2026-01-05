@@ -9,7 +9,8 @@ import Modal from '../modal/Modal'
 const Header = () => {
   const {modal, handleModal} = useGlobalCtx(),
   
-  items = ['Home', 'Projects', 'Skills & Certs', 'About', 'Book a Call'],
+  // items = ['This is Me', 'About', 'What I Build', 'Skills', 'Contact Me', 'Let's Talk!'],
+  items = ['This is Me', 'What I Build', "Let's Talk!"],
   [act, setAct] = useState<number>(0),
   
   highlightRef = useRef<HTMLLIElement | null>(null),
