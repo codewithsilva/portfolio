@@ -25,8 +25,6 @@ export const SocialsCtn = styled.div`
       gap:.5rem;
       width:50%;
       height:7rem;
-      background:${({theme})=>theme.hexToRgba(
-      theme.color.neutral, .6)};
     }
 
     li, button {

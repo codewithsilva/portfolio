@@ -8,26 +8,12 @@ export const ModalStyles = styled.article`
   position:relative;
   overflow:hidden;
   border-radius:5rem 5rem 0 0;
-  ${({theme})=>theme.shadow(theme.hexToRgba(theme.color.neutral, .3))}
+  ${({theme})=>theme.shadow(theme.hexToRgba(theme.color.default, .3))}
 
   ${({theme})=>theme.flex.startCenterColumn}
   color:${({theme})=>theme.color.neutral};
 
   animation:from-bottom .3s linear forwards;
-  
-  &:before {
-    ${({theme})=>theme.defDoubleDot}
-    ${({theme})=>theme.screenContainer}
-
-    background-image:url('/images/bg.jpeg');
-    background-size:cover;
-    background-repeat:no-repeat;
-
-    background-position:start;
-    z-index:-1;
-    transform:scale(2);
-    filter:blur(2px) brightness(100%);
-  }
 
   &, a:after, ol.opts, ol.opts li.on {
     ${blur}

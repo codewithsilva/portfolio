@@ -25,7 +25,7 @@ downloadResume = (
 
   const anchor = document.createElement('a')
   anchor.href = url
-  anchor.setAttribute('download', `resume.${type}`)
+  anchor.setAttribute('download', `Wanderson_Silva_Fullstack_Developer.${type}`)
 
   document.body.appendChild(anchor)
   anchor.click()
